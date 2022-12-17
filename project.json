@@ -1,0 +1,8 @@
+{
+  "engine": "cocos-creator-js",
+  "packages": "packages",
+  "name": "SnakeLadder",
+  "id": "0b3db236-ce81-4816-a118-4f63b70caef6",
+  "version": "2.4.0",
+  "isNew": false
+}
