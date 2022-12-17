@@ -38,20 +38,26 @@ cc.Class({
         let chassPos1 = 0;
         let chassPos2 = 0;
         this.schedule(function() {
-            if(chassPos1 === 100 || chassPos2 === 100) {
+            let processes = JSON.parse(common.replayProcess);
+            if(currentIndex >= processes.length) {
                 cc.director.loadScene("Start");
                 common.replayGameId = 0;
                 common.replayProcess = "[]";
                 return;
             }
-            let processes = JSON.parse(common.replayProcess);
             let process = processes[currentIndex];
             if(curChass == 0) {
                 chassPos1 = chassPos1 + process.num;
+                if(chassPos1 > 100) {
+                    chassPos1 = 200 - chassPos1
+                }
                 this.chass1Pos(chassPos1);
                 curChass = 1;
             } else {
                 chassPos2 = chassPos2 + process.num;
+                if(chassPos2 > 100) {
+                    chassPos2 = 200 - chassPos2
+                }
                 this.chass2Pos(chassPos2);
                 curChass = 0;
             }
